@@ -84,7 +84,7 @@ public class AlunosResource {
     public String postAluno(String content) throws SQLException{
         Gson json = new Gson();
         Alunos a = json.fromJson(content, Alunos.class);
-        return a.inserir();
+        return a.alterar();
     }
 
     @DELETE
@@ -106,6 +106,6 @@ public class AlunosResource {
     public String putAluno(String content) throws SQLException {
         Gson json = new Gson();
         Alunos a = json.fromJson(content, Alunos.class);
-        return a.alterar();
+        return a.inserir();
     }
 }

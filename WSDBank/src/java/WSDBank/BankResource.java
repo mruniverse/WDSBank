@@ -29,6 +29,7 @@ import javax.ws.rs.PathParam;
 
 @Path("Bank")
 public class BankResource {
+    private DBQuery db;
 
     @Context
     private UriInfo context;
@@ -37,37 +38,16 @@ public class BankResource {
      * Creates a new instance of GenericResource
      */
     public BankResource() {
-    }
-
-    /**
-     * Retrieves representation of an instance of WSDBank.GenericResource
-     * @return an instance of java.lang.String
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public String getXml() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * PUT method for updating or creating an instance of GenericResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
+        this.db = new DBQuery();
     }
     
     @PUT
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/nome/{nome}")
-    public String Cadastrar(@PathParam("nome") String nome, int num_ag, int num_conta) throws SQLException, ClassNotFoundException {
-        Conta a = new Conta(nome, num_ag, num_conta);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
+    public String Cadastrar(String content) throws SQLException{
         Gson json = new Gson();
-        String resultado = json.toJson(a);
-        return resultado;
+        Conta c = json.fromJson(content, Conta.class);
+        return this.db.RegistrarConta(c.getNome(), c.getNum_ag(), c.getNum_conta());
     }
 
     

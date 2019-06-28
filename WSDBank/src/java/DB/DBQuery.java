@@ -88,11 +88,11 @@ public class DBQuery {
         }
     }
 //    ==========================================================================
-    public int RegistrarConta(String nome, int ag, int conta){
+    public String RegistrarConta(String nome, int ag, int conta){
         Conta c = new Conta(nome, ag, conta);
 //        Connection conn = this.Connect();
 
-        if(cadastroExistente(ag, conta)) return -1;
+        if(cadastroExistente(ag, conta)) return "Cadastro Existente";
         
         try {
             Statement stmt = (Statement) this.conn.createStatement();
@@ -107,14 +107,11 @@ public class DBQuery {
 //            Query ============================================================
             stmt.executeUpdate(query);
             
-        } catch (SQLException e) {
-            System.out.println("Falha ao criar conta: \n");
-            System.err.println(e);
-            
-            return -1;
+        } catch (SQLException e) {            
+            return e.getMessage();
         }
         
-        return 0;
+        return "ok";
     }
 //    ==========================================================================
     public int AlterarCadastro(String nome, int ag, int conta){

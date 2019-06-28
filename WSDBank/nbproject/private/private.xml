@@ -2,13 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/cc47938751812/NetBeansProjects/WebApplication1/web/index.html</file>
-            <file>file:/home/cc47938751812/NetBeansProjects/WebApplication1/src/java/WSDBank/GenericResource.java</file>
-            <file>file:/home/cc47938751812/NetBeansProjects/WebApplication1/src/java/WSDBank/ApplicationConfig.java</file>
-        </group>
         <group name="Projects">
             <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/WSDBank/BankResource.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/DB/DBQuery.java</file>
+            <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/WSDBank/BankResource.java</file>
+            <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/DB/Connector.java</file>
         </group>
     </open-files>
 </project-private>

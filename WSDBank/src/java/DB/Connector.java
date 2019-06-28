@@ -10,8 +10,8 @@ import java.sql.*;
  * @author yuril
  */
 public class Connector {
-    private static final String USERNAME = "mysql";
-    private static final String PASSWORD = "mysql";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
     private static final String CONN_STRING = 
             "jdbc:mysql://localhost:3306/Banco24h";
 
