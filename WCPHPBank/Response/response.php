@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['id']) && $_POST['id']!="") {
 	$id = $_POST['id'];
-	$url = "http://localhost:8080/WSDBank/webresources/Bank/".$id;
+	$url = "http://localhost:8080/WDSBank/webresources/Bank/".$id;
 	
 	$client = curl_init($url);
 	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);

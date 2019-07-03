@@ -1,14 +1,25 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>RestFul PHP Consumer</title>
-    </head>
-    <body>
-	<form action="response.php" method="POST">
-            <label>Enter Order ID:</label><br />
-            <input type="text" name="id" placeholder="Enter ID" required/>
-            <br /><br />
-            <button type="submit" name="submit">Submit</button>
-        </form>
-    </body>
+<body>
+
+<h2>Grouping Form Data with Fieldset</h2>
+<p>The fieldset element is used to group related data in a form, and the legend element defines a caption for the fieldset element.</p>
+
+<form action="/Response/cadastrar.php" method="post">
+  <fieldset>
+    <legend>Personal information:</legend>
+    First name:<br>
+    <input type="text" name="nome">
+    <br>
+    Agency:<br>
+    <input type="number" name="ag">
+    <br>
+    Account:<br>
+    <input type="number" name="conta">
+    <br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+</body>
 </html>
