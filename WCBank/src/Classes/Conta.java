@@ -23,6 +23,14 @@ public class Conta {
         this.num_conta = num_conta;
     }
 
+    public Conta() {
+        this.id = 0;
+        this.nome = "";
+        this.num_ag = 0;
+        this.num_conta = 0;
+        this.saldo = 0;
+    }
+    
     public String getNome() {
         return nome;
     }
