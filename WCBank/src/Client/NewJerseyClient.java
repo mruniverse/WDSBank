@@ -33,8 +33,26 @@ public class NewJerseyClient {
         webResource = client.resource(BASE_URI).path("Bank");
     }
 
-    public <T> T Cadastrar(Class<T> responseType, Object requestEntity) throws UniformInterfaceException {
-        return webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).header("user-agent", "").put(responseType, requestEntity);
+    public String realizarDeposito(String ag, String conta, String valor) throws UniformInterfaceException {
+        return webResource.path(java.text.MessageFormat.format("deposito/{0}/{1}/{2}", new Object[]{ag, conta, valor})).post(String.class);
+    }
+
+    public String realizarSaque(String ag, String conta, String valor) throws UniformInterfaceException {
+        return webResource.path(java.text.MessageFormat.format("saque/{0}/{1}/{2}", new Object[]{ag, conta, valor})).post(String.class);
+    }
+
+    public String alterarCadastro(Object requestEntity) throws UniformInterfaceException {
+        return webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(String.class, requestEntity);
+    }
+
+    public String consultaCadastro(String id) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{id}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
+    }
+
+    public String cadastrar(Object requestEntity) throws UniformInterfaceException {
+        return webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(String.class, requestEntity);
     }
 
     public void close() {
