@@ -5,9 +5,6 @@
         <group name="Projects">
             <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/WSDBank/BankResource.java</file>
         </group>
-        <group>
-            <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/WSDBank/BankResource.java</file>
-            <file>file:/C:/Users/yuril/Documents/NetBeansProjects/WSDBank/WSDBank/src/java/DB/DBQuery.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

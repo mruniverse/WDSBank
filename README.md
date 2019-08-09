@@ -6,7 +6,7 @@
   2. Postman lets you generate snippets of code in various languages and
   frameworks that will help you do this.
   3. You’ll need to click the **Code** link under the blue Send button to
-  open the GENERATE CODE SNIPPETS modal.
+  open the **GENERATE CODE SNIPPETS modal**.
 
 ### For more information, see:
 > https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/

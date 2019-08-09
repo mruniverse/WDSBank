@@ -61,6 +61,13 @@ public class BankResource {
         return resultado;
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("CadastroExistente/{ag}/{conta}")
+    public String CadastroExistente(@PathParam("ag") int ag, @PathParam("conta") int conta) throws SQLException, ClassNotFoundException {
+        return db.cadastroExistente(ag, conta);
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -84,5 +91,13 @@ public class BankResource {
     @Path("deposito/{ag}/{conta}/{valor}")
     public String realizarDeposito(@PathParam("ag") int ag, @PathParam("conta") int conta, @PathParam("valor") float valor) throws SQLException{
         return db.Deposito(ag, conta, valor);
+    }
+    
+    @POST
+//    @Consumes(MediaType.APPLICATION_XML) It doesn't consumes any object!
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("transferencia/{ag1}/{conta1}/{ag2}/{conta2}/{valor}")
+    public String realizarTransferencia(@PathParam("ag1") int ag1, @PathParam("conta1") int conta1, @PathParam("ag2") int ag2, @PathParam("conta2") int conta2, @PathParam("valor") float valor) throws SQLException{
+        return db.Transferir(ag1, conta1, ag2, conta2, valor);
     }
 }

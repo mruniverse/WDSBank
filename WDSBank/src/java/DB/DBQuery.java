@@ -55,7 +55,7 @@ public class DBQuery {
         return c;
     }
 //    ==========================================================================
-    public boolean cadastroExistente(int ag, int conta){
+    public String cadastroExistente(int ag, int conta){
         Conta c = new Conta("", 0, 0);
         
         try {
@@ -78,15 +78,15 @@ public class DBQuery {
             System.err.println(e);
         }
         
-        if(c.getNum_ag() == ag && c.getNum_conta() == conta) return true;
-        else return false;
+        if(c.getNum_ag() == ag && c.getNum_conta() == conta) return "true";
+        else return "false";
     }
 //    ==========================================================================
     public String RegistrarConta(String nome, int ag, int conta){
         Conta c = new Conta(nome, ag, conta);
 //        Connection conn = this.Connect();
 
-        if(cadastroExistente(ag, conta)) return "Cadastro existente!";
+        if(cadastroExistente(ag, conta) == "true") return "Cadastro existente!";
         
         try {
             Statement stmt = (Statement) this.conn.createStatement();
@@ -130,6 +130,10 @@ public class DBQuery {
     }
 //    ==========================================================================
     public String Deposito(int ag, int conta, float saldo){
+        if(saldo <= 0){
+            return "Valor invalido!";
+        }
+        
         float valor = 0;
 //        Connection conn = this.Connect();
         
@@ -163,6 +167,10 @@ public class DBQuery {
     }
 //    ==========================================================================
     public String RealizarSaque(int ag, int conta, float valor){
+        if(valor <= 0){
+            return "Valor invalido!";
+        }
+        
         float saldo = 0;
 //        Connection conn = this.Connect();
         
@@ -221,6 +229,17 @@ public class DBQuery {
         }
 
         return c;
+    }
+//    ==========================================================================
+    public String Transferir(int ag1, int conta1, int ag2, int conta2, float valor){
+        try {
+            this.RealizarSaque(ag1, conta1, valor);
+            this.Deposito(ag2, conta2, valor);
+            
+            return "ok";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 //    ==========================================================================
 }
