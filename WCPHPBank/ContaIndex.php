@@ -1,4 +1,6 @@
-<?php $conta = $_POST['conta']?>
+<?php require_once './Classes/Conta.php'; session_start(); ?>
+<?php $result = $_SESSION['result']?>
+<?php $conta = new Conta($result->nome, $result->num_ag, $result->num_conta, $result->saldo)?>
 <!DOCTYPE html>
 <html>
     <body>
@@ -8,23 +10,22 @@
             <legend>Saldo: R$ <?php echo $conta->getSaldo() ?></legend>
 
             <form action="/Consulta.php" method="post">
-                <input type="hidden" value="<?php $conta?>" name="conta">
                 <input type="submit" value="Consultar Dados">
             </form>
             <br>
-            <form action="/WC/Session.php" method="post">
+            <form action="/Alterar.php" method="post">
                 <input type="submit" value="Alterar Conta">
             </form>
             <br>
-            <form action="/WC/Session.php" method="post">
+            <form action="/Deposito.php" method="post">
                 <input type="submit" value="Depositar">
             </form>
             <br>
-            <form action="/WC/Session.php" method="post">
+            <form action="/Saque.php" method="post">
                 <input type="submit" value="Sacar">
             </form>
             <br>
-            <form action="/WC/Session.php" method="post">
+            <form action="/Transferencia.php" method="post">
                 <input type="submit" value="Transferir">
             </form>
         </fieldset>

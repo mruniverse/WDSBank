@@ -1,5 +1,6 @@
-<?php $conta = $_POST['conta']?>
-<?php var_dump($conta)?>
+<?php require_once './Classes/Conta.php'; session_start(); ?>
+<?php $result = $_SESSION['result']?>
+<?php $conta = new Conta($result->nome, $result->num_ag, $result->num_conta, $result->saldo)?>
 <!DOCTYPE html>
 <html>
     <body>
@@ -8,11 +9,8 @@
         <fieldset>
             <legend>Dados do cliente</legend>
             <p>Nome: <?php echo $conta->getNome() ?></p>
-            <br>
             <p>Agencia: <?php echo $conta->getAg() ?></p>
-            <br>
             <p>Conta: <?php echo $conta->getConta() ?></p>
-            <br>
             <p>Saldo:  R$ <?php echo $conta->getSaldo() ?></p>
         </fieldset>
         <br><br>
